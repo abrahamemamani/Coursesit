@@ -1,0 +1,371 @@
+// ### Clases reutilizables pero no módulos ###
+
+.app-title{
+    text-transform: uppercase;
+    font-family: 'Viga', sans-serif;
+    color: darken($color, 10%);
+    position: relative;
+    margin-bottom: 70px;
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        width: 30px;
+        height: 2px;
+        background-color: $color;
+        transform: translateX(-50%);
+        @media screen and (min-width: $medium){
+            width: 40px;
+            height: 1.5px;
+        }
+    }
+}
+
+// *** Header ***
+.navbar{
+    padding: 0;
+    &-light{
+        .navbar{
+            &-brand,
+            &-nav .active > .nav-link,
+            &-nav .nav-link{
+                color: #fff;
+                &:focus, &:hover{
+                    color: #fff;
+                }
+            }
+            &-toggler{
+                border: none;
+                background-color: $color;
+                &:focus{
+                    outline: 0;
+                }
+                .is-icon{
+                    color: #fff;
+                    font-size: 1.4em;
+                    margin-top: 2.3px;
+                }
+            }
+        }
+    }
+    &-brand{
+        font-family: 'Viga', sans-serif;
+        letter-spacing: .5px;
+        font-size: 1.5em;
+        @media screen and (min-width: $medium){
+            font-size: 1.8em;
+        }
+        @media screen and (min-width: $large){
+            font-size: 2.2em;
+        }
+    }
+    .nav-item{
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+        &:last-of-type{
+            @media screen and (min-width: $large){
+                margin-right: 0;
+            }
+        }
+        &:hover, &.active{
+            background-color: darken($color, 5%);
+            @media screen and (min-width: $large){
+                background-color: transparent;
+            }
+        }
+        &.active:after{
+            @media screen and (min-width: $large){
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: $color;
+            }
+        }
+        @media screen and (min-width: $large){
+            margin-right: 10px;
+        }
+    }
+}
+
+// *** Banner ***
+.navbar{
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    &__wrapper{
+        padding: 15px 20px;
+        @media screen and (min-width: $medium){
+            padding-left: 30px;
+        }
+    }
+    &-collapse{
+        background-color: rgba(#000, .75);
+        @media screen and (min-width: $large){
+            background-color: transparent;
+            padding-right: 30px;
+        }
+    }
+}
+.app-banner{
+    position: relative;
+    z-index: 0;
+    margin-bottom: 30px;
+    @media screen and (min-width: $medium){
+        margin-bottom: 0;
+    }
+    &__content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        padding: 10px 15px;
+    }
+    &__title{
+        display: block;
+        position: relative;
+        font-size: 1.7em;
+        &:after{
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 50px;
+            height: 1px;
+            background-color: $color;
+            transform: translateX(-50%);
+            @media screen and (min-width: $medium){
+                width: 80px;
+                height: 1.5px;
+            }
+        }
+        @media screen and (min-width: $small){
+            font-size: 2.1em;
+        }
+        @media screen and (min-width: $medium){
+            font-size: 2.5em;
+        }
+        @media screen and (min-width: $large){
+            font-size: 2.8em;
+        }
+        @media screen and (min-width: $xlarge){
+            font-size: 3.5em;
+        }
+    }
+    &__subtitle{
+        display: none;
+        margin-top: 15px;
+        font-size: 1.1em;
+        @media screen and (min-width: $small){
+            display: block;
+        }
+        @media screen and (min-width: $large){
+            font-size: 1.3em;
+        }
+        @media screen and (min-width: $xlarge){
+            font-size: 1.5em;
+        }
+    }
+    
+    [class*="btn"]{
+        margin-top: 15px;
+        @media screen and (min-width: $small){
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        @media screen and (min-width: $medium){
+            padding: 10px 40px;
+        }
+    }
+}
+
+// *** Main ***
+.box-floating{
+    padding: 15px 30px;
+    background-color: darken($color, 5%);
+    color: #fff;
+    margin-bottom: 20px;
+    @media screen and (min-width: $medium){
+        margin-top: -40px;
+    }
+    @media screen and (min-width: $large){
+        margin-top: -70px;
+    }
+    @media screen and (min-width: $xlarge){
+        margin-top: -120px;
+    }
+    &__info{
+        padding-top: 10px;
+    }
+    &__title{
+        font: {
+            weight: bold;
+            size: 1.1em;
+        }
+    }
+    &__description{
+        margin-bottom: 0;
+        font-size: .8em;
+    }
+}
+
+.page-about{
+    &__content{
+        &:hover .icon-wrapper{
+            animation: effect_rotateY .8s 1;
+        }
+    }
+    &__row{
+        margin: 10px 0;
+    }
+    &__info{
+        &.text-left{
+            margin-left: 10px;
+        }
+        &.text-right{
+            margin-right: 10px;
+        }
+    }
+    &__title{
+        text-transform: uppercase;
+        font-size: 1em;
+        font-weight: bold;
+    }
+    &__description{
+        color: #767676;
+        font-size: .85em;
+        margin-bottom: 0;
+    }
+}
+
+.icon-wrapper{
+    background-color: $color;
+    .is-icon{
+        color: #fff;
+        font-size: 2.5em;
+        margin-bottom: 0;
+        line-height: 1.15;
+        padding: 5px;
+        @media screen and (min-width: $medium){
+            padding: 10px;
+        }
+        @media screen and (min-width: $large){
+            padding: 18px;
+        }
+        @media screen and (min-width: $xlarge){
+            padding: 25px;
+            font-size: 3.3em;
+        }
+    }
+}
+
+@keyframes effect_rotateY{
+    to{
+        transform: rotateY(360deg);
+    }
+}
+
+// Courses
+.box-floating-content{
+    position: relative;
+    margin-bottom: 20px;
+    &__wrapper{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(darken($color, 20%), .8);
+        height: 100%;
+        width: 65%;
+        color: #fff;
+        padding: 0 15px;
+        transition: all .3s ease-out;
+    }
+    &__info{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__title{
+        font-weight: bold;
+    }
+    &__description{
+        font-size: .85em;
+    }
+    &:hover &__wrapper{
+        background-color: darken($color, 20%);
+    }
+}
+
+.app-footer{
+    background-color: $clr_footer;
+}
+
+.group-social{
+    padding: 0;
+    &__item{
+        list-style: none;
+    }
+    &__link{
+        display: inline-block;
+        background-color: #fff;
+        color: $clr_footer;
+        font-size: 1.6em;
+        height: 50px;
+        width: 50px;
+        line-height: 55px;
+        text-align: center;
+        border-radius: 50%;
+        margin-left: 5px;
+        margin-right: 5px;
+        transition: all .3s ease;
+        &:hover{
+            background-color: lighten($clr_footer, 10%);
+            color: #fff;
+        }
+    }
+}
+
+.copy{
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
